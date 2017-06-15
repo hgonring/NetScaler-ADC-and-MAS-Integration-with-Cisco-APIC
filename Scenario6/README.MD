@@ -47,6 +47,7 @@ Use the **User Interfaces** of Cisco APIC, NetScaler VPX, and NetScaler MAS to c
 2. Double-click the **Cisco ASDM-IDM** icon to open the ASDM home page.
 
 3. Click **Continue** at the Security Warning, and log in ( **admin/C1sco12345** ).
+
   ![Cisco ASDM](images/CiscoASDM.png)
 
 4. Minimize the ASDM window.
@@ -54,16 +55,19 @@ Use the **User Interfaces** of Cisco APIC, NetScaler VPX, and NetScaler MAS to c
 5. Click the PuTTY shortcut in the Windows taskbar to open the application.
 
 6. Double-click **Tools** to load the stored session.
+
   ![Putty Tools](images/putty-tools.png)
 
 7. Log in to PuTTy ( **user01/user01** ).
 
 8. Place the window so that both the PuTTY window and the APIC directories are visible.
+
   ![Align Windows](images/align-windows.png)
 
 9. From the command line type **./request.py Citrix_Scripts/Build_ASA_Citrix_MAS.cfg** and hit **<Enter>**.
     
     > **NOTE:** To show the XML code as the Python script calls each XML script, substitute `./xml_request.py Citrix_Scripts/Build_ASA_Citrix_MAS.cfg` for the above command. This is an example of the partial XML output fo    the **Build_ASA_Citrix_MAS.xml** script.
+
         ![Build_ASA_Citrix_MAS.cfg](images/Build_ASA_Citrix_MAS.cfg.png)
     
     The **Build_ASA_Citrix_MAS.cfg** script utilizes a series of XML scripts to perform the necessary configuratio  steps. It will pause between each of the XML scripts, and the user can either press < **Enter** > to run the script, or type **s** to skip the script and configure the object via a wizard. While the script is running, brief description will display what that script is doing, while the APIC window updates in real-time. When script completes successfully, the success code 200 will appear onscreen.
@@ -242,12 +246,15 @@ Use the **User Interfaces** of Cisco APIC, NetScaler VPX, and NetScaler MAS to c
     **c.** Allow a few seconds for the script to finish. **webCtrct-WebGraph-Visa** drops into the **Deployed Graph Instances** directory, showing the association.
 
 24. Click the **L4-L7 Services > Deployed Graph Instances** folder – the contract is listed in applied state.
+
     ![Deployed WebGraph](images/Deployed-WebGraph.png)
 
 25. Click **webCtrct-WebGraph-Visa** to see the topology of the deployed Service Graph.
+
     ![Deployed Webgraph Topology](images/Deployed-WebGraph-topology.png)
 
 26. Expand **Deployed Devices** , and click **ADCCluster1-visactx1** and **Firewall-visactx1** in turn to review the VLANs allocated.
+
     ![ADCCluster1-visactx1](images/ADCCluster1-visactx1.png)
 
 27. Open a new **Chrome** tab. In the **Chrome Bookmarks Toolbar** , click the **NetScaler VPX** shortcut and login with credentials **nsroot/C1sco**.
