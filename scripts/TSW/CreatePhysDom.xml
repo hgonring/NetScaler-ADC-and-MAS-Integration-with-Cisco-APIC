@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- /api/policymgr/mo/.xml -->
-<polUni>
-   <physDomP name="vpc">
-      <infraRsVlanNs tDn="uni/infra/vlanns-inst-static" />
-   </physDomP>
-</polUni>

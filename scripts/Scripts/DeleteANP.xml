@@ -1,5 +1,0 @@
-<polUni>
-    <fvTenant dn="uni/tn-Sales" name="Sales">
-        <fvAp name="CoolApp" status="deleted"/>
-    </fvTenant>
-</polUni>

@@ -1,5 +1,0 @@
-<fvTenant descr="" dn="uni/tn-common" name="common" ownerKey="" ownerTag="">
-	<vzFilter descr="" dn="uni/tn-common/flt-icmp" name="icmp" ownerKey="" ownerTag="">
-		<vzEntry applyToFrag="no" arpOpc="unspecified" dFromPort="unspecified" dToPort="unspecified" descr="" etherT="ip" icmpv4T="unspecified" icmpv6T="unspecified" matchDscp="unspecified" name="icmp" prot="icmp" sFromPort="unspecified" sToPort="unspecified" stateful="no" tcpRules=""/>
-	</vzFilter>
-</fvTenant>

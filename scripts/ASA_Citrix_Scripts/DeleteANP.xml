@@ -1,5 +1,0 @@
-<polUni>
-    <fvTenant dn="uni/tn-Visa" name="Visa">
-        <fvAp name="sap" status="deleted"/>
-    </fvTenant>
-</polUni>
