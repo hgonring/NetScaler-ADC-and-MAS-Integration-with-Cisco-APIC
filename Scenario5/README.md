@@ -39,7 +39,7 @@ Use the User Interfaces of Cisco APIC, NetScaler VPX, and NetScaler MAS to confi
 
 2. If the application is not open, launch **Application Policy Infrastructure Controller** by clicking the **APIC Login** icon.
 
-	a. Log in with the following credentials: Username: **admin**, Password: **C1sco12345**.
+  * Log in with the following credentials: Username: **admin**, Password: **C1sco12345**.
 
 3. Click **Tenants** in the top menu to show that there are no user-created tenants present.
 
