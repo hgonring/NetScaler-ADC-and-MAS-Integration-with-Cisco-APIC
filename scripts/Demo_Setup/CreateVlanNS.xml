@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- /api/policymgr/mo/.xml -->
+<polUni>
+   <infraInfra>
+      <fvnsVlanInstP name="inst" allocMode="static">
+         <fvnsEncapBlk name="encap" from="vlan-2000" to="vlan-2100" />
+      </fvnsVlanInstP>
+   </infraInfra>
+</polUni>

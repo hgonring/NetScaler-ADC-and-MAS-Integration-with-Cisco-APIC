@@ -1,0 +1,14 @@
+<fvTenant>
+    <attributes>
+        <dn>uni/tn-Visa</dn>
+        <status>modified</status>
+    </attributes>
+    <children>
+        <vnsDevMgr>
+            <attributes>
+                <dn>uni/tn-Visa/devMgr-NetScaler-MAS</dn>
+                <status>deleted</status>
+            </attributes>
+        </vnsDevMgr>
+    </children>
+</fvTenant>

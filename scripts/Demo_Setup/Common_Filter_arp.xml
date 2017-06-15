@@ -1,0 +1,5 @@
+<fvTenant descr="" dn="uni/tn-common" name="common" ownerKey="" ownerTag="">
+	<vzFilter descr="" dn="uni/tn-common/flt-arp" name="arp" ownerKey="" ownerTag="">
+		<vzEntry applyToFrag="no" arpOpc="unspecified" dFromPort="unspecified" dToPort="unspecified" descr="" etherT="arp" icmpv4T="unspecified" icmpv6T="unspecified" matchDscp="unspecified" name="arp" prot="unspecified" sFromPort="unspecified" sToPort="unspecified" stateful="no" tcpRules=""/>
+	</vzFilter>
+</fvTenant>

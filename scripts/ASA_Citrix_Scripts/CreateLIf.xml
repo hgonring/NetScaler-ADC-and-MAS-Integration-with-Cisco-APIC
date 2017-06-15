@@ -1,0 +1,19 @@
+<polUni>
+    <fvTenant dn="uni/tn-Visa" name="Visa">
+
+        <vnsLDevVip name="ADCCluster1">
+            <vnsLIf name="inside">
+                <vnsRsMetaIf tDn="uni/infra/mDev-Citrix-NetScaler-1.0/mIfLbl-inside"/>
+                <vnsRsCIfAtt tDn="uni/tn-Visa/lDevVip-ADCCluster1/cDev-ADC1/cIf-[1_2]"/>
+            </vnsLIf>
+            <vnsLIf name="outside">
+                <vnsRsMetaIf tDn="uni/infra/mDev-Citrix-NetScaler-1.0/mIfLbl-outside"/>
+                <vnsRsCIfAtt tDn="uni/tn-Visa/lDevVip-ADCCluster1/cDev-ADC1/cIf-[1_1]"/>
+            </vnsLIf>
+            <vnsLIf name="mgmt">
+                <vnsRsMetaIf tDn="uni/infra/mDev-Citrix-NetScaler-1.0/mIfLbl-mgmt"/>
+                <vnsRsCIfAtt tDn="uni/tn-Visa/lDevVip-ADCCluster1/cDev-ADC1/cIf-[1_2]"/>
+            </vnsLIf>
+        </vnsLDevVip>
+    </fvTenant>
+</polUni>

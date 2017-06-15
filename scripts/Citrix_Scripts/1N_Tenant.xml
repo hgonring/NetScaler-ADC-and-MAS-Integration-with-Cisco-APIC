@@ -1,0 +1,23 @@
+<polUni>
+    <fvTenant
+        dn="uni/tn-Visa"
+        name="Visa">
+        
+        <fvCtx name="Visactx1"/>
+
+        <!-- bridge domain -->
+        <fvBD name="VisaBDWeb">
+          <fvRsCtx tnFvCtxName="Visactx1" />         
+          <fvSubnet ip="10.10.10.220/24">
+          </fvSubnet>
+        </fvBD>
+
+        <!-- bridge domain -->
+        <fvBD name="VisaBDApp">
+          <fvRsCtx tnFvCtxName="Visactx1" />
+          <fvSubnet ip="192.168.10.220/24">
+          </fvSubnet>
+        </fvBD>
+
+    </fvTenant>
+</polUni>

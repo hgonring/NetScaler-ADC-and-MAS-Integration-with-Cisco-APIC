@@ -1,0 +1,8 @@
+<fvTenant descr="" dn="uni/tn-common" name="common" ownerKey="" ownerTag="">
+	<fvBD arpFlood="no" descr="" dn="uni/tn-common/BD-BD_Common" epMoveDetectMode="" ipLearning="yes" limitIpLearnToSubnets="no" llAddr="::" mac="00:22:BD:F8:19:FF" mcastAllow="no" multiDstPktAct="bd-flood" name="BD_Common" ownerKey="" ownerTag="" type="regular" unicastRoute="yes" unkMacUcastAct="proxy" unkMcastAct="flood" vmac="not-applicable">
+		<fvRsBDToNdP tnNdIfPolName=""/>
+		<fvRsCtx tnFvCtxName="VRF_Common"/>
+		<fvRsIgmpsn tnIgmpSnoopPolName=""/>
+		<fvRsBdToEpRet resolveAct="resolve" tnFvEpRetPolName=""/>
+	</fvBD>
+</fvTenant>

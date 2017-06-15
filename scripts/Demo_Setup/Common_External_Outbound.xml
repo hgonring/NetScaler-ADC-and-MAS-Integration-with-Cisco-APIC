@@ -1,0 +1,7 @@
+<fvTenant descr="" dn="uni/tn-common" name="common" ownerKey="" ownerTag="">
+	<vzBrCP descr="" dn="uni/tn-common/brc-External_Outbound" name="External_Outbound" ownerKey="" ownerTag="" prio="unspecified" scope="context" targetDscp="unspecified">
+		<vzSubj consMatchT="AtleastOne" descr="" name="http" prio="unspecified" provMatchT="AtleastOne" revFltPorts="yes" targetDscp="unspecified">
+			<vzRsSubjFiltAtt directives="" tnVzFilterName="http"/>
+		</vzSubj>
+	</vzBrCP>
+</fvTenant>

@@ -1,0 +1,9 @@
+<polUni>
+    <fvTenant dn="uni/tn-Visa" name="Visa">
+        <vzBrCP name="webCtrct">
+            <vzSubj name="http" provMatchT="All"  consMatchT="All">
+                <vzRsSubjFiltAtt tnVzFilterName="default"/>
+            </vzSubj>
+        </vzBrCP>
+    </fvTenant>
+</polUni>

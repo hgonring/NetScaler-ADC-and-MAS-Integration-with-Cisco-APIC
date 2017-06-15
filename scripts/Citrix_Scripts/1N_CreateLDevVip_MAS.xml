@@ -1,0 +1,35 @@
+<polUni>
+    <fvTenant dn="uni/tn-Visa" name="Visa">
+
+        <vnsLDevVip name="ADCCluster1" contextAware="single-Context" devtype="VIRTUAL" dn="uni/tn-Visa/lDevVip-ADCCluster1" funcType="GoTo" isCopy="no" managed="yes" mode="legacy-Mode" name="ADCCluster1" nameAlias="" packageModel="NetScaler-VPX" svcType="ADC" trunking="no">
+            <vnsRsMDevAtt tDn="uni/infra/mDev-Citrix-NetScalerMAS-1.0"/> 
+            <vnsRsALDevToDevMgr tnVnsDevMgrName="NetScaler-MAS"/>
+            <vnsRsALDevToDomP tDn="uni/vmmp-VMware/dom-My-vCenter"/>
+
+            <vnsCMgmt name="devMgmt"
+                      host="198.18.128.110"
+                      port="80"
+                      />
+
+            <vnsCCred name="username"
+                      value="nsroot"
+                      />
+
+            <vnsCCredSecret name="password"
+                            value="C1sco12345"
+                            />
+        </vnsLDevVip>
+
+	<vnsLDevCtx ctrctNameOrLbl="webCtrct" descr="" dn="uni/tn-Visa/ldevCtx-c-webCtrct-g-WebGraph-n-N1" graphNameOrLbl="WebGraph" name="" nodeNameOrLbl="N1">
+    		<vnsRsLDevCtxToLDev tDn="uni/tn-Visa/lDevVip-ADCCluster1" />
+    		<vnsLIfCtx connNameOrLbl="consumer" descr="" name="">
+        	<vnsRsLIfCtxToBD tDn="uni/tn-Visa/BD-VisaBDWeb" />
+        	<vnsRsLIfCtxToLIf tDn="uni/tn-Visa/lDevVip-ADCCluster1/lIf-inside" />
+    	</vnsLIfCtx>
+    	<vnsLIfCtx connNameOrLbl="provider" descr="" name="">
+        	<vnsRsLIfCtxToBD tDn="uni/tn-Visa/BD-VisaBDApp" />
+        	<vnsRsLIfCtxToLIf tDn="uni/tn-Visa/lDevVip-ADCCluster1/lIf-outside" />
+    	</vnsLIfCtx>
+	</vnsLDevCtx>
+    </fvTenant>
+</polUni>

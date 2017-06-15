@@ -1,0 +1,81 @@
+<polUni>
+    <fvTenant dn="uni/tn-Visa" name="Visa">
+
+        <vnsLDevVip name="ADCCluster1" devtype="VIRTUAL">
+            <vnsRsMDevAtt tDn="uni/infra/mDev-Citrix-NetScaler-1.0"/> 
+            <vnsRsALDevToDomP tDn="uni/vmmp-VMware/dom-My-vCenter"/>
+
+            <vnsCMgmt name="devMgmt"
+                      host="198.18.128.110"
+                      port="80"
+                      />
+
+            <vnsCCred name="username"
+                      value="nsroot"
+                      />
+
+            <vnsCCredSecret name="password"
+                            value="C1sco12345"
+                            />
+             <vnsDevFolder key="enableFeature" name="EnableFeature">
+                 <vnsDevParam key="OSPF" name="ospf_1" value="ENABLE"/>
+                 <vnsDevParam key="LB" name="lb" value="ENABLE"/>
+                 <vnsDevParam key="SSL" name="ssl" value="ENABLE"/>
+             </vnsDevFolder>
+
+             <vnsDevFolder key="enableMode" name="EnableMode">
+                 <vnsDevParam key="USNIP" name="usnip" value="ENABLE"/>
+                 <vnsDevParam key="DRADV" name="dradv" value="ENABLE"/>
+                 <vnsDevParam key="L3" name="l3" value="ENABLE"/>
+             </vnsDevFolder>
+        </vnsLDevVip>
+
+<vnsLDevCtx ctrctNameOrLbl="webCtrct" descr="" dn="uni/tn-Visa/ldevCtx-c-webCtrct-g-WebGraph-n-N2" graphNameOrLbl="WebGraph" name="" nodeNameOrLbl="N2">
+    <vnsRsLDevCtxToLDev tDn="uni/tn-Visa/lDevVip-ADCCluster1" />
+    <vnsLIfCtx connNameOrLbl="provider" descr="" name="">
+        <vnsRsLIfCtxToBD tDn="uni/tn-Visa/BD-VisaBDWeb" />
+        <vnsRsLIfCtxToLIf tDn="uni/tn-Visa/lDevVip-ADCCluster1/lIf-inside" />
+    </vnsLIfCtx>
+    <vnsLIfCtx connNameOrLbl="consumer" descr="" name="">
+        <vnsRsLIfCtxToBD tDn="uni/tn-Visa/BD-VisaBD3" />
+        <vnsRsLIfCtxToLIf tDn="uni/tn-Visa/lDevVip-ADCCluster1/lIf-outside" />
+    </vnsLIfCtx>
+</vnsLDevCtx>
+
+         <vnsLDevVip contextAware="single-Context" devtype="VIRTUAL" dn="uni/tn-Visa/lDevVip-Firewall" funcType="GoTo" managed="yes" mode="legacy-Mode" name="Firewall" svcType="FW">
+            <vnsRsMDevAtt tDn="uni/infra/mDev-CISCO-ASA-1.2" />
+            <vnsCCred name="username" value="admin" />
+            <vnsCCredSecret name="password" value="C1sco12345" />
+            <vnsRsALDevToDomP tDn="uni/vmmp-VMware/dom-My-vCenter" />
+            <vnsCMgmt host="198.18.128.100" name="" port="443" />
+            <vnsCDev devCtxLbl="" name="Firewall_Device_1" vcenterName="dCloud-DC" vmName="ASAv">
+                <vnsCCred name="username" value="admin" />
+                <vnsCCredSecret name="password" value="C1sco12345" />
+                <vnsCMgmt host="198.18.128.100" name="" port="443" />
+                <vnsCIf name="GigabitEthernet0/1" vnicName="Network adapter 3" />
+                <vnsCIf name="GigabitEthernet0/0" vnicName="Network adapter 2" />
+                <vnsRsCDevToCtrlrP tDn="uni/vmmp-VMware/dom-My-vCenter/ctrlr-dCloud-DC" />
+            </vnsCDev>
+            <vnsLIf encap="unknown" name="outside">
+                <vnsRsMetaIf tDn="uni/infra/mDev-CISCO-ASA-1.2/mIfLbl-external" />
+                <vnsRsCIfAttN tDn="uni/tn-Visa/lDevVip-Firewall/cDev-Firewall_Device_1/cIf-[GigabitEthernet0/0]" />
+            </vnsLIf>
+            <vnsLIf encap="unknown" name="inside">
+                <vnsRsMetaIf tDn="uni/infra/mDev-CISCO-ASA-1.2/mIfLbl-internal" />
+                <vnsRsCIfAttN tDn="uni/tn-Visa/lDevVip-Firewall/cDev-Firewall_Device_1/cIf-[GigabitEthernet0/1]" />
+            </vnsLIf>
+        </vnsLDevVip>
+
+        <vnsLDevCtx ctrctNameOrLbl="webCtrct" descr="" dn="uni/tn-Visa/ldevCtx-c-webCtrct-g-WebGraph-n-N1" graphNameOrLbl="WebGraph" name="" nodeNameOrLbl="N1">
+    <vnsRsLDevCtxToLDev tDn="uni/tn-Visa/lDevVip-Firewall" />
+    <vnsLIfCtx connNameOrLbl="provider" descr="" name="">
+        <vnsRsLIfCtxToBD tDn="uni/tn-Visa/BD-VisaBD3" />
+        <vnsRsLIfCtxToLIf tDn="uni/tn-Visa/lDevVip-Firewall/lIf-inside" />
+    </vnsLIfCtx>
+    <vnsLIfCtx connNameOrLbl="consumer" descr="" name="">
+        <vnsRsLIfCtxToBD tDn="uni/tn-Visa/BD-VisaBDApp" />
+        <vnsRsLIfCtxToLIf tDn="uni/tn-Visa/lDevVip-Firewall/lIf-outside" />
+    </vnsLIfCtx>
+</vnsLDevCtx>
+    </fvTenant>
+</polUni>

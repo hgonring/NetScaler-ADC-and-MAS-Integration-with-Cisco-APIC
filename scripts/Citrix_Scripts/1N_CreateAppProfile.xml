@@ -1,0 +1,68 @@
+<polUni>
+   <fvTenant name="Visa">
+      <fvAp descr="" dn="uni/tn-Visa/ap-sap" name="sap" ownerKey="" ownerTag="" prio="unspecified">
+         <fvAEPg descr="" isAttrBasedEPg="no" matchT="AtleastOne" name="Web" prio="unspecified">
+            <fvRsDomAtt encap="unknown" instrImedcy="lazy" resImedcy="immediate" tDn="uni/vmmp-VMware/dom-My-vCenter">
+               <vmmSecP allowPromiscuous="reject" descr="" forgedTransmits="reject" macChanges="reject" name="" ownerKey="" ownerTag="" />
+            </fvRsDomAtt>
+            <fvRsDomAtt encap="unknown" instrImedcy="lazy" resImedcy="lazy" tDn="uni/phys-phys" />
+            <fvRsCustQosPol tnQosCustomPolName="" />
+        <fvRsBd tnFvBDName="VisaBDWeb"/>
+        <vnsFolderInst ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="servicegroup" locked="no" name="two_arm_servicegroup" nodeNameOrLbl="N1" scopedBy="epg">
+            <vnsParamInst key="port" locked="no" mandatory="no" name="port" validation="" value="80"/>
+            <vnsParamInst key="servicegroupname" locked="no" mandatory="no" name="servicegroupname" validation="" value="webservicegroup"/>
+            <vnsParamInst key="servicetype" locked="no" mandatory="no" name="servicetype" validation="" value="HTTP"/>
+            <vnsFolderInst ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="servicegroup_servicegroupmember_binding" locked="no" name="servicegroup_servicegroupmember_binding" nodeNameOrLbl="N1" scopedBy="epg">
+                <vnsParamInst key="ip" locked="no" mandatory="no" name="ip" validation="" value="10.20.2.5"/>
+                <vnsParamInst key="port" locked="no" mandatory="no" name="port" validation="" value="80"/>
+            </vnsFolderInst>
+        </vnsFolderInst>
+        <vnsFolderInst ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="mFCngservicegroup" locked="no" name="mFCngservicegroup" nodeNameOrLbl="N1" scopedBy="epg">
+            <vnsCfgRelInst key="servicegroup_key" locked="no" mandatory="no" name="servicegroup_key" targetName="two_arm_servicegroup"/>
+        </vnsFolderInst>
+        <vnsFolderInst ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="lbvserver" locked="no" name="two_arm_lbvserver" nodeNameOrLbl="N1" scopedBy="epg">
+            <vnsParamInst key="lbmethod" locked="no" mandatory="no" name="lbmethod" validation="" value="LEASTCONNECTION"/>
+            <vnsParamInst key="port" locked="no" mandatory="no" name="port" validation="" value="80"/>
+            <vnsParamInst key="ipv46" locked="no" mandatory="no" name="ipv46" validation="" value="10.10.10.100"/>
+            <vnsParamInst key="name" locked="no" mandatory="no" name="name" validation="" value="vip_web"/>
+            <vnsParamInst key="servicetype" locked="no" mandatory="no" name="servicetype" validation="" value="HTTP"/>
+            <vnsFolderInst ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="lbvserver_servicegroup_binding" locked="no" name="lbvserver_servicegroup_binding" nodeNameOrLbl="N1" scopedBy="epg">
+                <vnsCfgRelInst key="servicename" locked="no" mandatory="no" name="servicename" targetName="two_arm_servicegroup"/>
+            </vnsFolderInst>
+        </vnsFolderInst>
+        <vnsFolderInst ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="Network" locked="no" name="two_arm_network" nodeNameOrLbl="N1" scopedBy="epg">
+            <vnsFolderInst ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="nsip" locked="no" name="external_snip" nodeNameOrLbl="N1" scopedBy="epg">
+                <vnsParamInst key="ipaddress" locked="no" mandatory="no" name="ipaddress" validation="" value="10.10.10.3"/>
+                <vnsParamInst key="dynamicrouting" locked="no" mandatory="no" name="dynamicRouting" validation="" value="ENABLED"/>
+                <vnsParamInst key="netmask" locked="no" mandatory="no" name="netmask" validation="" value="255.255.255.0"/>
+                <vnsParamInst key="hostroute" locked="no" mandatory="no" name="hostroute" validation="" value="DISABLED"/>
+                <vnsParamInst key="type" locked="no" mandatory="no" name="type" validation="" value="SNIP"/>
+            </vnsFolderInst>
+            <vnsFolderInst ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="nsip" locked="no" name="internal_snip" nodeNameOrLbl="N1" scopedBy="epg">
+                <vnsParamInst key="ipaddress" locked="no" mandatory="no" name="ipaddress" validation="" value="10.20.2.1"/>
+                <vnsParamInst key="dynamicrouting" locked="no" mandatory="no" name="dynamicRouting" validation="" value="ENABLED"/>
+                <vnsParamInst key="netmask" locked="no" mandatory="no" name="netmask" validation="" value="255.255.255.0"/>
+                <vnsParamInst key="hostroute" locked="no" mandatory="no" name="hostroute" validation="" value="DISABLED"/>
+                <vnsParamInst key="type" locked="no" mandatory="no" name="type" validation="" value="SNIP"/>
+            </vnsFolderInst>
+        </vnsFolderInst>
+        <vnsFolderInst ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="external_network" locked="no" name="external_network" nodeNameOrLbl="N1" scopedBy="epg">
+            <vnsCfgRelInst key="external_network_key" locked="no" mandatory="no" name="external_network_key" targetName="two_arm_network/external_snip"/>
+        </vnsFolderInst>
+        <vnsFolderInst ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="internal_network" locked="no" name="internal_network" nodeNameOrLbl="N1" scopedBy="epg">
+            <vnsCfgRelInst key="internal_network_key" locked="no" mandatory="no" name="internal_network_key" targetName="two_arm_network/internal_snip"/>
+        </vnsFolderInst>
+        <vnsFolderInst ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="mFCnglbvserver" locked="no" name="mFCnglbvserver" nodeNameOrLbl="N1" scopedBy="epg">
+            <vnsCfgRelInst key="lbvserver_key" locked="no" mandatory="no" name="lbvserver_key" targetName="two_arm_lbvserver"/>
+        </vnsFolderInst>
+        <fvRsProv prio="unspecified" tnVzBrCPName="webCtrct" />
+    </fvAEPg>
+            <!-- EPG 2 -->
+            <fvAEPg dn="uni/tn-Visa/ap-sap/epg-App" name="App">
+                <fvRsBd tnFvBDName="VisaBDApp" />
+                	<fvRsDomAtt tDn="uni/vmmp-VMware/dom-My-vCenter" />
+                <fvRsCons tnVzBrCPName="webCtrct" />
+            </fvAEPg>
+        </fvAp>
+    </fvTenant>
+</polUni>

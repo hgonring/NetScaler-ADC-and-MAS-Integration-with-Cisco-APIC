@@ -1,0 +1,25 @@
+<fvTenant descr="" dn="uni/tn-common" name="common" ownerKey="" ownerTag="">
+	<vnsLDevVip contextAware="single-Context" devtype="VIRTUAL" dn="uni/tn-common/lDevVip-Firewall" funcType="GoThrough" isCopy="no" managed="yes" mode="legacy-Mode" name="Firewall" packageModel="ASAv" svcType="FW" trunking="no">
+		<vnsCCred name="username" value="admin"/>
+		<vnsRsMDevAtt tDn="uni/infra/mDev-CISCO-ASA-1.2"/>
+		<vnsCCredSecret name="password"/>
+		<vnsCMgmt host="198.18.128.100" name="" port="443"/>
+		<vnsRsALDevToDomP tDn="uni/vmmp-VMware/dom-My-vCenter"/>
+		<vnsCDev devCtxLbl="" name="Device1" vcenterName="dCloud-DC" vmName="ASAv">
+			<vnsCCred name="username" value="admin"/>
+			<vnsCCredSecret name="password"/>
+			<vnsCMgmt host="198.18.128.100" name="" port="443"/>
+			<vnsCIf name="GigabitEthernet0/1" vnicName="Network adapter 3"/>
+			<vnsCIf name="GigabitEthernet0/0" vnicName="Network adapter 2"/>
+			<vnsRsCDevToCtrlrP tDn="uni/vmmp-VMware/dom-My-vCenter/ctrlr-dCloud-DC"/>
+		</vnsCDev>
+		<vnsLIf encap="unknown" name="Inside">
+			<vnsRsMetaIf isConAndProv="no" tDn="uni/infra/mDev-CISCO-ASA-1.2/mIfLbl-internal"/>
+			<vnsRsCIfAttN tDn="uni/tn-common/lDevVip-Firewall/cDev-Device1/cIf-[GigabitEthernet0/1]"/>
+		</vnsLIf>
+		<vnsLIf encap="unknown" name="Outside">
+			<vnsRsMetaIf isConAndProv="no" tDn="uni/infra/mDev-CISCO-ASA-1.2/mIfLbl-external"/>
+			<vnsRsCIfAttN tDn="uni/tn-common/lDevVip-Firewall/cDev-Device1/cIf-[GigabitEthernet0/0]"/>
+		</vnsLIf>
+	</vnsLDevVip>
+</fvTenant>

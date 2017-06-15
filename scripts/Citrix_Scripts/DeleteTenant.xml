@@ -1,0 +1,5 @@
+<polUni>
+  <fvTenant
+      dn="uni/tn-Visa"
+      name="Visa" status="deleted"/>
+</polUni>

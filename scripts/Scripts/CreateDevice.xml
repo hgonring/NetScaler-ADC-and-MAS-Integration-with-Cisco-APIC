@@ -1,0 +1,40 @@
+<polUni>
+    <fvTenant dn="uni/tn-Sales" name="Sales">
+
+         <vnsLDevVip contextAware="single-Context" devtype="VIRTUAL" dn="uni/tn-Sales/lDevVip-Firewall" funcType="GoTo" managed="yes" mode="legacy-Mode" name="Firewall" svcType="FW">
+            <vnsRsMDevAtt tDn="uni/infra/mDev-CISCO-ASA-1.2" />
+            <vnsCCred name="username" value="admin" />
+            <vnsCCredSecret name="password" value="C1sco12345" />
+            <vnsRsALDevToDomP tDn="uni/vmmp-VMware/dom-My-vCenter" />
+            <vnsCMgmt host="198.18.128.100" name="" port="443" />
+            <vnsCDev devCtxLbl="" name="Firewall_Device_1" vcenterName="dCloud-DC" vmName="ASAv">
+                <vnsCCred name="username" value="admin" />
+                <vnsCCredSecret name="password" value="C1sco12345" />
+                <vnsCMgmt host="198.18.128.100" name="" port="443" />
+                <vnsCIf name="GigabitEthernet0/1" vnicName="Network adapter 3" />
+                <vnsCIf name="GigabitEthernet0/0" vnicName="Network adapter 2" />
+                <vnsRsCDevToCtrlrP tDn="uni/vmmp-VMware/dom-My-vCenter/ctrlr-dCloud-DC" />
+            </vnsCDev>
+            <vnsLIf encap="unknown" name="outside">
+                <vnsRsMetaIf tDn="uni/infra/mDev-CISCO-ASA-1.2/mIfLbl-external" />
+                <vnsRsCIfAttN tDn="uni/tn-Sales/lDevVip-Firewall/cDev-Firewall_Device_1/cIf-[GigabitEthernet0/0]" />
+            </vnsLIf>
+            <vnsLIf encap="unknown" name="inside">
+                <vnsRsMetaIf tDn="uni/infra/mDev-CISCO-ASA-1.2/mIfLbl-internal" />
+                <vnsRsCIfAttN tDn="uni/tn-Sales/lDevVip-Firewall/cDev-Firewall_Device_1/cIf-[GigabitEthernet0/1]" />
+            </vnsLIf>
+        </vnsLDevVip>
+
+        <vnsLDevCtx ctrctNameOrLbl="webCtrct" descr="" dn="uni/tn-Sales/ldevCtx-c-webCtrct-g-FWGraph-n-N1" graphNameOrLbl="FWGraph" name="" nodeNameOrLbl="N1">
+    <vnsRsLDevCtxToLDev tDn="uni/tn-Sales/lDevVip-Firewall" />
+    <vnsLIfCtx connNameOrLbl="provider" descr="" name="">
+        <vnsRsLIfCtxToBD tDn="uni/tn-Sales/BD-SalesBDWeb" />
+        <vnsRsLIfCtxToLIf tDn="uni/tn-Sales/lDevVip-Firewall/lIf-inside" />
+    </vnsLIfCtx>
+    <vnsLIfCtx connNameOrLbl="consumer" descr="" name="">
+        <vnsRsLIfCtxToBD tDn="uni/tn-Sales/BD-SalesBDApp" />
+        <vnsRsLIfCtxToLIf tDn="uni/tn-Sales/lDevVip-Firewall/lIf-outside" />
+    </vnsLIfCtx>
+</vnsLDevCtx>
+    </fvTenant>
+</polUni>

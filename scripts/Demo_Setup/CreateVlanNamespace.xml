@@ -1,0 +1,7 @@
+<polUni>
+<infraInfra>
+     <fvnsVlanInstP name="dCloud_VLAN_Pool" allocMode="dynamic">
+        <fvnsEncapBlk name="encap" from="vlan-1001" to="vlan-1500"/>
+     </fvnsVlanInstP>
+</infraInfra>
+</polUni>

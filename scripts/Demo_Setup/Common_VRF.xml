@@ -1,0 +1,9 @@
+<fvTenant descr="" dn="uni/tn-common" name="common" ownerKey="" ownerTag="">
+	<fvCtx descr="" dn="uni/tn-common/ctx-VRF_Common" knwMcastAct="permit" name="VRF_Common" ownerKey="" ownerTag="" pcEnfDir="ingress" pcEnfPref="enforced">
+		<fvRsBgpCtxPol tnBgpCtxPolName=""/>
+		<fvRsCtxToExtRouteTagPol tnL3extRouteTagPolName=""/>
+		<fvRsOspfCtxPol tnOspfCtxPolName=""/>
+		<vzAny descr="" matchT="AtleastOne" name="" prefGrMemb="disabled"/>
+		<fvRsCtxToEpRet tnFvEpRetPolName=""/>
+	</fvCtx>
+</fvTenant>

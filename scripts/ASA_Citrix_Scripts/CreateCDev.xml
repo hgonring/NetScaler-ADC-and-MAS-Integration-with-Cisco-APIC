@@ -1,0 +1,24 @@
+<polUni>
+    <fvTenant
+    dn="uni/tn-Visa"
+    name="Visa">
+        <vnsLDevVip name="ADCCluster1">
+            <vnsCDev name="ADC1" vcenterName="dCloud-DC" vmName="vpx1">
+                <vnsRsCDevToCtrlrP tDn="uni/vmmp-VMware/dom-My-vCenter/ctrlr-dCloud-DC"/>
+                <vnsCIf name="1_1" vnicName="Network adapter 2"/>
+                <vnsCIf name="1_2" vnicName="Network adapter 3"/>
+
+                <vnsCMgmt name="devMgmt"
+                          host="198.18.128.110"
+                          port="80"
+                          />
+                <vnsCCred name="username"
+                          value="nsroot"
+                          />
+                <vnsCCredSecret name="password"
+                               value="C1sco12345"
+                          />
+            </vnsCDev>
+        </vnsLDevVip>
+    </fvTenant>
+</polUni>

@@ -1,0 +1,150 @@
+<polUni>
+   <fvTenant name="Visa">
+      <fvAp descr="" dn="uni/tn-Visa/ap-sap" name="sap" ownerKey="" ownerTag="" prio="unspecified">
+         <fvAEPg descr="" isAttrBasedEPg="no" matchT="AtleastOne" name="SAPWeb" prio="unspecified">
+            <fvRsDomAtt encap="unknown" instrImedcy="lazy" resImedcy="immediate" tDn="uni/vmmp-VMware/dom-My-vCenter">
+               <vmmSecP allowPromiscuous="reject" descr="" forgedTransmits="reject" macChanges="reject" name="" ownerKey="" ownerTag="" />
+            </fvRsDomAtt>
+            <fvRsDomAtt encap="unknown" instrImedcy="lazy" resImedcy="lazy" tDn="uni/phys-phys" />
+            <fvRsCustQosPol tnQosCustomPolName="" />
+            <fvRsBd tnFvBDName="VisaBDWeb" />
+            <vnsFolderInst cardinality="unspecified" ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="servicegroup" locked="no" name="two_arm_servicegroup" nodeNameOrLbl="N2" scopedBy="epg">
+               <vnsParamInst cardinality="unspecified" key="port" locked="no" mandatory="no" name="port" validation="" value="80" />
+               <vnsParamInst cardinality="unspecified" key="servicegroupname" locked="no" mandatory="no" name="servicegroupname" validation="" value="sapSVG" />
+               <vnsParamInst cardinality="unspecified" key="servicetype" locked="no" mandatory="no" name="servicetype" validation="" value="HTTP" />
+               <vnsFolderInst cardinality="unspecified" ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="servicegroup_servicegroupmember_binding" locked="no" name="servicegroup_servicegroupmember_binding" nodeNameOrLbl="N2" scopedBy="epg">
+                  <vnsParamInst cardinality="unspecified" key="ip" locked="no" mandatory="no" name="ip" validation="" value="10.10.10.50" />
+                  <vnsParamInst cardinality="unspecified" key="port" locked="no" mandatory="no" name="port" validation="" value="80" />
+               </vnsFolderInst>
+            </vnsFolderInst>
+            <vnsFolderInst cardinality="unspecified" ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="internal_network" locked="no" name="internal_network" nodeNameOrLbl="N2" scopedBy="epg">
+               <vnsCfgRelInst cardinality="unspecified" key="internal_network_key" locked="no" mandatory="no" name="internal_network_key" targetName="two_arm_network/internal_snip" />
+            </vnsFolderInst>
+            <vnsFolderInst cardinality="unspecified" ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="external_network" locked="no" name="external_network" nodeNameOrLbl="N2" scopedBy="epg">
+               <vnsCfgRelInst cardinality="unspecified" key="external_network_key" locked="no" mandatory="no" name="external_network_key" targetName="two_arm_network/external_snip" />
+            </vnsFolderInst>
+            <vnsFolderInst cardinality="unspecified" ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="mFCngservicegroup" locked="no" name="mFCngservicegroup" nodeNameOrLbl="N2" scopedBy="epg">
+               <vnsCfgRelInst cardinality="unspecified" key="servicegroup_key" locked="no" mandatory="no" name="servicegroup_key" targetName="two_arm_servicegroup" />
+            </vnsFolderInst>
+            <vnsFolderInst cardinality="unspecified" ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="Network" locked="no" name="two_arm_network" nodeNameOrLbl="N2" scopedBy="epg">
+               <vnsFolderInst cardinality="unspecified" ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="nsip" locked="no" name="internal_snip" nodeNameOrLbl="N2" scopedBy="epg">
+                  <vnsParamInst cardinality="unspecified" key="ipaddress" locked="no" mandatory="no" name="ipaddress" validation="" value="10.10.10.20" />
+                  <vnsParamInst cardinality="unspecified" key="dynamicrouting" locked="no" mandatory="no" name="dynamicRouting" validation="" value="ENABLED" />
+                  <vnsParamInst cardinality="unspecified" key="netmask" locked="no" mandatory="no" name="netmask" validation="" value="255.255.255.0" />
+                  <vnsParamInst cardinality="unspecified" key="hostroute" locked="no" mandatory="no" name="hostroute" validation="" value="DISABLED" />
+                  <vnsParamInst cardinality="unspecified" key="type" locked="no" mandatory="no" name="type" validation="" value="SNIP" />
+               </vnsFolderInst>
+               <vnsFolderInst cardinality="unspecified" ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="nsip" locked="no" name="external_snip" nodeNameOrLbl="N2" scopedBy="epg">
+                  <vnsParamInst cardinality="unspecified" key="ipaddress" locked="no" mandatory="no" name="ipaddress" validation="" value="30.30.30.20" />
+                  <vnsParamInst cardinality="unspecified" key="dynamicrouting" locked="no" mandatory="no" name="dynamicRouting" validation="" value="ENABLED" />
+                  <vnsParamInst cardinality="unspecified" key="netmask" locked="no" mandatory="no" name="netmask" validation="" value="255.255.255.0" />
+                  <vnsParamInst cardinality="unspecified" key="hostroute" locked="no" mandatory="no" name="hostroute" validation="" value="DISABLED" />
+                  <vnsParamInst cardinality="unspecified" key="type" locked="no" mandatory="no" name="type" validation="" value="SNIP" />
+               </vnsFolderInst>
+            </vnsFolderInst>
+            <vnsFolderInst cardinality="unspecified" ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="mFCnglbvserver" locked="no" name="mFCnglbvserver" nodeNameOrLbl="N2" scopedBy="epg">
+               <vnsCfgRelInst cardinality="unspecified" key="lbvserver_key" locked="no" mandatory="no" name="lbvserver_key" targetName="two_arm_lbvserver" />
+            </vnsFolderInst>
+            <vnsFolderInst cardinality="unspecified" ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="lbvserver" locked="no" name="two_arm_lbvserver" nodeNameOrLbl="N2" scopedBy="epg">
+               <vnsParamInst cardinality="unspecified" key="lbmethod" locked="no" mandatory="no" name="lbmethod" validation="" value="LEASTCONNECTION" />
+               <vnsParamInst cardinality="unspecified" key="port" locked="no" mandatory="no" name="port" validation="" value="80" />
+               <vnsParamInst cardinality="unspecified" key="ipv46" locked="no" mandatory="no" name="ipv46" validation="" value="30.30.30.25" />
+               <vnsParamInst cardinality="unspecified" key="name" locked="no" mandatory="no" name="name" validation="" value="sapLBVServer" />
+               <vnsParamInst cardinality="unspecified" key="servicetype" locked="no" mandatory="no" name="servicetype" validation="" value="HTTP" />
+               <vnsFolderInst cardinality="unspecified" ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="lbvserver_servicegroup_binding" locked="no" name="lbvserver_servicegroup_binding" nodeNameOrLbl="N2" scopedBy="epg">
+                  <vnsCfgRelInst cardinality="unspecified" key="servicename" locked="no" mandatory="no" name="servicename" targetName="two_arm_servicegroup" />
+               </vnsFolderInst>
+            </vnsFolderInst>
+            <vnsFolderInst ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="ExIntfConfigRelFolder" locked="no" name="ExtConfig" nodeNameOrLbl="N1" scopedBy="epg">
+               <vnsCfgRelInst key="ExIntfConfigRel" locked="no" mandatory="no" name="ExtConfigrel" targetName="externalIf" />
+            </vnsFolderInst>
+            <vnsFolderInst ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="InIntfConfigRelFolder" locked="no" name="IntConfig" nodeNameOrLbl="N1" scopedBy="epg">
+               <vnsCfgRelInst key="InIntfConfigRel" locked="no" mandatory="no" name="InConfigrel" targetName="internalIf" />
+            </vnsFolderInst>
+       	<vnsFolderInst ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="Interface" locked="no" name="externalIf" nodeNameOrLbl="N1" scopedBy="epg">
+       	 	<vnsFolderInst ctrctNameOrLbl="webCtrct" graphNameOrLbl="WebGraph" key="AccessGroup" name="ExtAccessGroup" nodeNameOrLbl="N1" scopedBy="epg">
+                  <vnsCfgRelInst key="inbound_access_list_name" name="oACG" targetName="access-list-inbound" />
+            </vnsFolderInst>
+               <vnsFolderInst ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="InterfaceConfig" locked="no" name="InterfaceConfig" nodeNameOrLbl="N1" scopedBy="epg">
+                        <vnsParamInst key="security_level" name="external_security_level" value="50"/>
+               <vnsFolderInst ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="IPv4Address" locked="no" name="IPv4Address" nodeNameOrLbl="N1" scopedBy="epg">
+                        <vnsParamInst key="ipv4_address" name="ipv4_address" value="20.20.20.50/255.255.255.0"/>
+               </vnsFolderInst>
+               </vnsFolderInst>
+               </vnsFolderInst>
+        <vnsFolderInst ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="Interface" locked="no" name="internalIf" nodeNameOrLbl="N1" scopedBy="epg">
+            <vnsFolderInst ctrctNameOrLbl="webCtrct" graphNameOrLbl="WebGraph" key="AccessGroup" name="IntAccessGroup" nodeNameOrLbl="N1" scopedBy="epg">
+                  <vnsCfgRelInst key="outbound_access_list_name" name="iACG" targetName="access-list-outbound" />
+            </vnsFolderInst>
+               <vnsFolderInst ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="InterfaceConfig" locked="no" name="InterfaceConfig" nodeNameOrLbl="N1" scopedBy="epg">
+			   <vnsParamInst key="security_level" name="internal_security_level" value="100"/>
+               <vnsFolderInst ctrctNameOrLbl="webCtrct" devCtxLbl="" graphNameOrLbl="WebGraph" key="IPv4Address" locked="no" name="IPv4Address" nodeNameOrLbl="N1" scopedBy="epg">
+                        <vnsParamInst key="ipv4_address" name="ipv4_address" value="30.30.30.50/255.255.255.0"/>          
+               </vnsFolderInst>
+               </vnsFolderInst>
+               </vnsFolderInst>
+    	<vnsFolderInst ctrctNameOrLbl="webCtrct" graphNameOrLbl="WebGraph" key="AccessList" locked="no" name="access-list-inbound" nodeNameOrLbl="N1" scopedBy="epg">
+         	<vnsFolderInst ctrctNameOrLbl="webCtrct" graphNameOrLbl="WebGraph" key="AccessControlEntry" locked="no" name="ACE1" nodeNameOrLbl="N1" scopedBy="epg">
+            	<vnsParamInst key="action" locked="no" mandatory="no" name="action1" validation="" value="permit" />
+            	<vnsParamInst key="order" locked="no" mandatory="no" name="order1" validation="" value="1" />
+            <vnsFolderInst ctrctNameOrLbl="webCtrct" graphNameOrLbl="WebGraph" key="source_address" locked="no" name="src-address" nodeNameOrLbl="N1" scopedBy="epg">
+               	<vnsParamInst key="any" locked="no" mandatory="no" name="any" validation="" value="any" />
+            </vnsFolderInst>
+            <vnsFolderInst ctrctNameOrLbl="webCtrct" graphNameOrLbl="WebGraph" key="protocol" locked="no" name="protocol1" nodeNameOrLbl="N1" scopedBy="epg">
+               	<vnsParamInst key="name_number" locked="no" mandatory="no" name="pNN1" validation="" value="tcp" />
+        	</vnsFolderInst>
+        	<vnsFolderInst ctrctNameOrLbl="webCtrct" graphNameOrLbl="WebGraph" key="destination_address" locked="no" name="destination_address" nodeNameOrLbl="N1" scopedBy="epg">
+               	<vnsParamInst key="any" locked="no" mandatory="no" name="any" value="any" />
+            </vnsFolderInst>
+            <vnsFolderInst ctrctNameOrLbl="webCtrct" graphNameOrLbl="WebGraph" key="destination_service" locked="no" name="d1" nodeNameOrLbl="N1" scopedBy="epg">
+               	<vnsParamInst key="operator" locked="no" mandatory="no" name="dop1" validation="" value="eq" />
+               	<vnsParamInst key="low_port" locked="no" mandatory="no" name="dlp1" validation="" value="http" />
+            </vnsFolderInst>
+         </vnsFolderInst>
+         <vnsFolderInst ctrctNameOrLbl="webCtrct" graphNameOrLbl="WebGraph" key="AccessControlEntry" locked="no" name="ACE2" nodeNameOrLbl="N1" scopedBy="epg">
+            	<vnsParamInst key="action" locked="no" mandatory="no" name="action2" validation="" value="permit" />
+            	<vnsParamInst key="order" locked="no" mandatory="no" name="order2" validation="" value="2" />
+            	<vnsFolderInst ctrctNameOrLbl="webCtrct" graphNameOrLbl="WebGraph" key="source_address" locked="no" name="src-address" nodeNameOrLbl="N1" scopedBy="epg">
+               	<vnsParamInst key="any" locked="no" mandatory="no" name="any" validation="" value="any" />
+        	</vnsFolderInst>
+        	<vnsFolderInst ctrctNameOrLbl="webCtrct" graphNameOrLbl="WebGraph" key="protocol" locked="no" name="protocol2" nodeNameOrLbl="N1" scopedBy="epg">
+               	<vnsParamInst key="name_number" locked="no" mandatory="no" name="pNN2" validation="" value="tcp" />
+            </vnsFolderInst>
+            <vnsFolderInst ctrctNameOrLbl="webCtrct" graphNameOrLbl="WebGraph" key="destination_address" locked="no" name="destination_address" nodeNameOrLbl="N1" scopedBy="epg">
+               	<vnsParamInst key="any" locked="no" mandatory="no" name="any" value="any" />
+            </vnsFolderInst>
+            <vnsFolderInst ctrctNameOrLbl="webCtrct" graphNameOrLbl="WebGraph" key="destination_service" locked="no" name="d2" nodeNameOrLbl="N1" scopedBy="epg">
+               	<vnsParamInst key="operator" locked="no" mandatory="no" name="dop2" value="eq" />
+               	<vnsParamInst key="low_port" locked="no" mandatory="no" name="dlp2" value="https" />
+            </vnsFolderInst>
+        </vnsFolderInst>
+      	</vnsFolderInst>
+      	    	<vnsFolderInst ctrctNameOrLbl="webCtrct" graphNameOrLbl="WebGraph" key="AccessList" locked="no" name="access-list-outbound" nodeNameOrLbl="N1" scopedBy="epg">
+         <vnsFolderInst ctrctNameOrLbl="webCtrct" graphNameOrLbl="WebGraph" key="AccessControlEntry" locked="no" name="ACE1" nodeNameOrLbl="N1" scopedBy="epg">
+            	<vnsParamInst key="action" locked="no" mandatory="no" name="action1" validation="" value="permit" />
+            	<vnsParamInst key="order" locked="no" mandatory="no" name="order1" validation="" value="1" />
+            	<vnsFolderInst ctrctNameOrLbl="webCtrct" graphNameOrLbl="WebGraph" key="source_address" locked="no" name="src-address" nodeNameOrLbl="N1" scopedBy="epg">
+               	<vnsParamInst key="any" locked="no" mandatory="no" name="any" validation="" value="any" />
+        	</vnsFolderInst>
+        	<vnsFolderInst ctrctNameOrLbl="webCtrct" graphNameOrLbl="WebGraph" key="protocol" locked="no" name="protocol1" nodeNameOrLbl="N1" scopedBy="epg">
+               	<vnsParamInst key="name_number" locked="no" mandatory="no" name="pNN1" validation="" value="icmp" />
+            </vnsFolderInst>
+            <vnsFolderInst ctrctNameOrLbl="webCtrct" graphNameOrLbl="WebGraph" key="destination_address" locked="no" name="destination_address" nodeNameOrLbl="N1" scopedBy="epg">
+               	<vnsParamInst key="any" locked="no" mandatory="no" name="any" value="any" />
+            </vnsFolderInst>
+        </vnsFolderInst>
+      	</vnsFolderInst>
+            <fvRsProv prio="unspecified" tnVzBrCPName="webCtrct" />
+         </fvAEPg>
+         <fvAEPg descr="" isAttrBasedEPg="no" matchT="AtleastOne" name="SAPApp" prio="unspecified">
+            <fvRsCons prio="unspecified" tnVzBrCPName="webCtrct" />
+            <fvRsDomAtt encap="unknown" instrImedcy="lazy" resImedcy="immediate" tDn="uni/vmmp-VMware/dom-My-vCenter">
+               <vmmSecP allowPromiscuous="reject" descr="" forgedTransmits="reject" macChanges="reject" name="" ownerKey="" ownerTag="" />
+            </fvRsDomAtt>
+            <fvRsDomAtt encap="unknown" instrImedcy="lazy" resImedcy="lazy" tDn="uni/phys-phys" />
+            <fvRsCustQosPol tnQosCustomPolName="" />
+            <fvRsBd tnFvBDName="VisaBDApp" />
+         </fvAEPg>
+      </fvAp>
+   </fvTenant>
+</polUni>

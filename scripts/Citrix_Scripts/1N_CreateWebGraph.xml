@@ -1,0 +1,31 @@
+<polUni>
+    <fvTenant name="Visa">
+    <vnsAbsGraph dn="uni/tn-Visa/AbsGraph-WebGraph" name="WebGraph">
+        <vnsAbsTermNodeCon name="T1" >
+            <vnsAbsTermConn attNotify="no" name="1" />
+        </vnsAbsTermNodeCon>
+        <vnsAbsTermNodeProv name="T2" >
+            <vnsAbsTermConn attNotify="no" name="1" />
+        </vnsAbsTermNodeProv>
+        <vnsAbsConnection adjType="L2" connDir="provider" connType="external" name="C1" unicastRoute="yes">
+            <vnsRsAbsConnectionConns tDn="uni/tn-Visa/AbsGraph-WebGraph/AbsTermNodeCon-T1/AbsTConn"/>
+            <vnsRsAbsConnectionConns tDn="uni/tn-Visa/AbsGraph-WebGraph/AbsNode-N1/AbsFConn-consumer"/>
+        </vnsAbsConnection>
+        <vnsAbsConnection adjType="L2" connDir="provider" connType="external" name="C2" unicastRoute="yes">
+            <vnsRsAbsConnectionConns tDn="uni/tn-Visa/AbsGraph-WebGraph/AbsTermNodeProv-T2/AbsTConn"/>
+            <vnsRsAbsConnectionConns tDn="uni/tn-Visa/AbsGraph-WebGraph/AbsNode-N1/AbsFConn-provider"/>
+        </vnsAbsConnection>
+        <vnsAbsNode funcTemplateType="ADC_TWO_ARM" funcType="GoTo" managed="yes" name="N1" sequenceNumber="0" shareEncap="no">
+            <vnsAbsFuncConn attNotify="no" name="consumer" >
+                <vnsRsMConnAtt tDn="uni/infra/mDev-Citrix-NetScaler-1.0/mFunc-LoadBalancing/mConn-external"/>
+            </vnsAbsFuncConn>
+            <vnsAbsFuncConn attNotify="no" name="provider" >
+                <vnsRsMConnAtt tDn="uni/infra/mDev-Citrix-NetScaler-1.0/mFunc-LoadBalancing/mConn-internal"/>
+            </vnsAbsFuncConn>
+            <vnsRsNodeToAbsFuncProf tDn="uni/infra/mDev-Citrix-NetScaler-1.0/absFuncProfContr/absFuncProfGrp-LB-HTTP-Two-Arm-Group/absFuncProf-LB-HTTP-Two-Arm-Profile"/>
+            <vnsRsNodeToMFunc tDn="uni/infra/mDev-Citrix-NetScaler-1.0/mFunc-LoadBalancing"/>
+            <vnsRsNodeToLDev tDn="uni/tn-Visa/lDevVip-ADCCluster1"/>
+        </vnsAbsNode>
+    </vnsAbsGraph>
+  </fvTenant>
+</polUni>

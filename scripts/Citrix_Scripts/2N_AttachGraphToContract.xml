@@ -1,0 +1,9 @@
+<polUni>
+    <fvTenant name="Visa">
+        <vzBrCP name="webCtrct">
+            <vzSubj name="http">
+                    <vzRsSubjGraphAtt tnVnsAbsGraphName="WebGraph"/>
+            </vzSubj>
+        </vzBrCP>
+    </fvTenant>
+</polUni>
