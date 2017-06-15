@@ -1,9 +1,0 @@
-<polUni>
-    <fvTenant name="Sales">
-        <vzBrCP name="webCtrct">
-            <vzSubj name="http">
-                    <vzRsSubjGraphAtt tnVnsAbsGraphName="FWGraph"/>
-            </vzSubj>
-        </vzBrCP>
-    </fvTenant>
-</polUni>

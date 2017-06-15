@@ -35,10 +35,10 @@ Use the **User Interfaces** of Cisco APIC, NetScaler VPX, and NetScaler MAS to c
 * Deploy L4-L7 WebGraph parameters in NetScaler MAS
 * Verify deployed L4-L7 parameters in NetScaler MAS and in NetScaler VPX
 
-| **Methods** | **Automation Level** | **Explanation** | ￼**Completion Time** | **Notes**
-    :---: | --- | --- | ---
-    Use Python Scripting to Build Objects Within the APIC | High | To configure the APIC objects with scripts, the user downloads a set of configuration scripts and employs them in a command window, monitoring the output via the APIC UI. | 20 minutes | To maximize the effectiveness of this Scenario, view the relevant directories in APIC while the Python scripts are working, to show the discovery of the network objects in real-time.
-    Manual Configuration of Individual Objects | Low | Use an APIC wizard and the configuration parameters provided in this script to manually create each required object | 60 minutes | See the links in each step to the procedure for manual object creation.
+| **Methods** | **Automation Level** | **Explanation** | ￼**Completion Time** | **Notes** |
+| ----------- |:--------------------:|:---------------:|:--------------------:|:--------:|
+| Manual Configuration of Individual Objects | Low | Use an APIC wizard and the configuration parameters provided in this script to manually create each required object | 60 minutes | See the links in each step to the procedure for manual object creation. |
+| Use Python Scripting to Build Objects Within the APIC | High | To configure the APIC objects with scripts, the user downloads a set of configuration scripts and employs them in a command window, monitoring the output via the APIC UI. | 20 minutes | To maximize the effectiveness of this Scenario, view the relevant directories in APIC while the Python scripts are working, to show the discovery of the network objects in real-time.
 
 ## Steps
 
@@ -47,6 +47,7 @@ Use the **User Interfaces** of Cisco APIC, NetScaler VPX, and NetScaler MAS to c
 2. Double-click the **Cisco ASDM-IDM** icon to open the ASDM home page.
 
 3. Click **Continue** at the Security Warning, and log in ( **admin/C1sco12345** ).
+
   ![Cisco ASDM](images/CiscoASDM.png)
 
 4. Minimize the ASDM window.
@@ -54,16 +55,19 @@ Use the **User Interfaces** of Cisco APIC, NetScaler VPX, and NetScaler MAS to c
 5. Click the PuTTY shortcut in the Windows taskbar to open the application.
 
 6. Double-click **Tools** to load the stored session.
+
   ![Putty Tools](images/putty-tools.png)
 
 7. Log in to PuTTy ( **user01/user01** ).
 
 8. Place the window so that both the PuTTY window and the APIC directories are visible.
+
   ![Align Windows](images/align-windows.png)
 
 9. From the command line type **./request.py Citrix_Scripts/Build_ASA_Citrix_MAS.cfg** and hit **<Enter>**.
     
     > **NOTE:** To show the XML code as the Python script calls each XML script, substitute `./xml_request.py Citrix_Scripts/Build_ASA_Citrix_MAS.cfg` for the above command. This is an example of the partial XML output fo    the **Build_ASA_Citrix_MAS.xml** script.
+
         ![Build_ASA_Citrix_MAS.cfg](images/Build_ASA_Citrix_MAS.cfg.png)
     
     The **Build_ASA_Citrix_MAS.cfg** script utilizes a series of XML scripts to perform the necessary configuratio  steps. It will pause between each of the XML scripts, and the user can either press < **Enter** > to run the script, or type **s** to skip the script and configure the object via a wizard. While the script is running, brief description will display what that script is doing, while the APIC window updates in real-time. When script completes successfully, the success code 200 will appear onscreen.
@@ -152,7 +156,7 @@ Use the **User Interfaces** of Cisco APIC, NetScaler VPX, and NetScaler MAS to c
 
     **b.** Expand **L4-L7 Services > Device Managers** and show there are no device managers present.
 
-    **c.** Return to the PuTTY window and hit **< Enter >** at the `Hit return to process Citrix_Scripts/CreatedevMgr.xml or press ‘**s**’ and return to skip this script` prompt.
+    **c.** Return to the PuTTY window and hit **< Enter >** at the `Hit return to process Citrix_Scripts/CreatedevMgr.xml` or press ‘**s**’ and return to skip this script prompt.
 
     **d.** Verify the creation of the **NetScaler-MAS** Device Manager.
 
@@ -160,7 +164,7 @@ Use the **User Interfaces** of Cisco APIC, NetScaler VPX, and NetScaler MAS to c
 
     **a.** Still in the Visa tenant window, expand L4-L7 Services > L4-L7 Devices , which is empty.
     
-    **b.** Return to the PuTTY window and hit < Enter > at the `Hit return to process Citrix_Scripts/2N_CreateLDevVip_MAS.xml or press ‘**s**’ and return to skip this script` prompt.
+    **b.** Return to the PuTTY window and hit < Enter > at the `Hit return to process Citrix_Scripts/2N_CreateLDevVip_MAS.xml` or press '**s**' and return to skip this script prompt.
 
     **c.** Verify the creation of the **ADCCluster1** and **Firewall** device clusters.
 
@@ -168,9 +172,9 @@ Use the **User Interfaces** of Cisco APIC, NetScaler VPX, and NetScaler MAS to c
 
     **a.** Expand the **ADCCluster1** and **Firewall** directories.
 
-    **b.** Return to the PuTTY window and hit **< Enter >** at the `Hit return to process Citrix_Scripts/2N_CreateCDev.xml or press ‘*s*’ and return to skip this script` prompt.
+    **b.** Return to the PuTTY window and hit **< Enter >** at the `Hit return to process Citrix_Scripts/2N_CreateCDev.xml` or press ‘**s**’ and return to skip this script prompt.
 
-    **c.** The ADC1 device is created in the ADCCluster1 device cluster. Expand the ADC1 dev ice to display the concrete interfaces.
+    **c.** The ADC1 device is created in the ADCCluster1 device cluster. Expand the ADC1 device to display the concrete interfaces.
 
     **d.** The **Firewall_Device_1** device is created in the **Firewall** device cluster.
 
@@ -179,21 +183,21 @@ Use the **User Interfaces** of Cisco APIC, NetScaler VPX, and NetScaler MAS to c
     **f.** Click ADCCluster1, then Firewall, to display the device state.
         ![ADC-1 Cluster](images/ADC1-Cluster.png)
 
-    > **NOTE:** The ADCCluster1 device will rem ain in **init** state until the interfaces are created in Step 15. Continue with the demo and, if desired, come back to check the status at the completion of the scenario.
+    > **NOTE:** The ADCCluster1 device will remain in **init** state until the interfaces are created in Step 15. Continue with the demo and, if desired, come back to check the status at the completion of the scenario.
 
 15. Create the logical interfaces:
 
     **a.** Still in **TENANTS > Visa** , expand **L4-L7 Services** and select **ADCCluster**.
 
-    **b.** Return to the PuTTY window and hit **< Enter >** at the `Hit return to process Citrix_Scripts/2N_CreateLIf_MAS.xml or press ‘s’ and return to skip this script` prompt.
+    **b.** Return to the PuTTY window and hit **< Enter >** at the `Hit return to process Citrix_Scripts/2N_CreateLIf_MAS.xml` or press ‘**s**’ and return to skip this script prompt.
 
-16. **ADCClus ter1** and **Firewall** are populated with inside and outside Logical Interfaces.
+16. **ADCCluster1** and **Firewall** are populated with inside and outside Logical Interfaces.
 
 17. Connect the interfaces of the Logical and Concrete Device:
 
     **a.** Still in **TENANTS > Visa** , expand **L4-L7 Services** and select **ADCCluster**.
     
-    **b.** Return to the PuTTY window and hit **< Enter >** at the `Hit return to process Citrix_Scripts/2N_CreateCDev.xml or press ‘s’ and return to skip this script` prompt.
+    **b.** Return to the PuTTY window and hit **< Enter >** at the `Hit return to process Citrix_Scripts/2N_CreateCDev.xml` or press ‘**s**’ and return to skip this script prompt.
 
     **c.** **ADCCluster1** and **Firewall** are populated with inside and outside Logical Interfaces.
 
@@ -201,7 +205,7 @@ Use the **User Interfaces** of Cisco APIC, NetScaler VPX, and NetScaler MAS to c
 
     **a.** Still in the **Tenant Visa** directory, expand **Application Profiles**, which is empty.
     
-    **b.** Return to the PuTTY window and hit **< Enter >** at the `Hit return to Process Citrix_Scripts/2N_CreateAppProfile_MAS.xml or press ‘s’ and return to skip this script` prompt.
+    **b.** Return to the PuTTY window and hit **< Enter >** at the `Hit return to Process Citrix_Scripts/2N_CreateAppProfile_MAS.xml` or press ‘**s**’ and return to skip this script prompt.
 
     **c.** The **SAP** application profile drops into the directory as it is created. Expand the Application EPGs directory to view the EPGs – **EPG SAPApp** and **EPG SAPWeb**.
 
@@ -214,7 +218,7 @@ Use the **User Interfaces** of Cisco APIC, NetScaler VPX, and NetScaler MAS to c
 
     **a.** Expand **Security Policies > Contracts**.
 
-    **b.** Return to the PuTTY window and hit **< Enter >** at the `Hit return to Process Citrix_Scripts/2N_CreateContract.xml or press ‘s’ and return to skip this script` prompt.
+    **b.** Return to the PuTTY window and hit **< Enter >** at the `Hit return to Process Citrix_Scripts/2N_CreateContract.xml` or press ‘**s**’ and return to skip this script prompt.
 
     **c.** **webCtrct > http** is created in **Contracts**.
 
@@ -222,7 +226,7 @@ Use the **User Interfaces** of Cisco APIC, NetScaler VPX, and NetScaler MAS to c
 
     **a.** Still in **TENANTS > Visa** , expand **L4-L7 Services > L4-L7 Service Graph Templates**, which is empty.
     
-    **b.** Return to the PuTTY window and hit **< Enter >** at the `Hit return to process Citrix_Scripts/2N_CreateGraph_MAS.xml or press ‘s’ and return to skip this script` prompt.
+    **b.** Return to the PuTTY window and hit **< Enter >** at the `Hit return to process Citrix_Scripts/2N_CreateGraph_MAS.xml` or press ‘**s**’ and return to skip this script prompt.
 
     **c.** **WebGraph** is created in the **L4-L7 Service Graph Templates** folder, with **Function Node – N1**, and **Function Node - N2** sub-directories. This script also pushes the Port Profiles.
 
@@ -231,43 +235,51 @@ Use the **User Interfaces** of Cisco APIC, NetScaler VPX, and NetScaler MAS to c
 
 22. Optional – Click each **Function Node** to show all the parameters that have been configured.
 
-    > **NOTE:** The ne xt step runs the script that attaches the Service Graph to the Contract. To [perform the procedure manually](../Appendix/Appendix-A), type **s** at the prompts for the **Citrix_Scripts/2N_AttachGraphToContract.xml** script:
+    > **NOTE:** The next step runs the script that attaches the Service Graph to the Contract. To [perform the procedure manually](../Appendix/Appendix-E), type **s** at the prompts for the **Citrix_Scripts/2N_AttachGraphToContract.xml** script:
 
 23. Attach the **Service Graphs** to the **Visa** tenant, as follows:
 
     **a.** Still in the **Tenants > Visa**, directory, expand **L4-L7 Services > Deployed Graph Instances**, which is empty.
 
-    **b.** Return to the PuTTY window and hit **< Enter >** at the `Hit return to process Citrix_Scripts/2N_AttachGraphToContract.xml or press ‘s’ and return to skip this script` prompt.
+    **b.** Return to the PuTTY window and hit **< Enter >** at the `Hit return to process Citrix_Scripts/2N_AttachGraphToContract.xml` or press ‘**s**’ and return to skip this script prompt.
 
     **c.** Allow a few seconds for the script to finish. **webCtrct-WebGraph-Visa** drops into the **Deployed Graph Instances** directory, showing the association.
 
 24. Click the **L4-L7 Services > Deployed Graph Instances** folder – the contract is listed in applied state.
+
     ![Deployed WebGraph](images/Deployed-WebGraph.png)
 
 25. Click **webCtrct-WebGraph-Visa** to see the topology of the deployed Service Graph.
+
     ![Deployed Webgraph Topology](images/Deployed-WebGraph-topology.png)
 
 26. Expand **Deployed Devices** , and click **ADCCluster1-visactx1** and **Firewall-visactx1** in turn to review the VLANs allocated.
+
     ![ADCCluster1-visactx1](images/ADCCluster1-visactx1.png)
 
 27. Open a new **Chrome** tab. In the **Chrome Bookmarks Toolbar** , click the **NetScaler VPX** shortcut and login with credentials **nsroot/C1sco**.
 
 28. Expand **System > Network** on the left menu and click **VLANs** to display the VLANs. Verify that the VLANs match the ones showing in the ADCCluster1-Visactx1 device in APIC.
+
     ![VLANS](images/Network-VLAN.png)
 
 29. Click the vSphere shortcut in the task bar, and log in to vSphere. (No login credentials are needed – click **Login** ) Navigate to the Networking window and verify the creation of the additional Port-Profiles.
+
     ![vSphere-Hyp](images/vSphere-hype.png)
 
 30. In the Location bar, click **Networking** and select **Hosts and Clusters** from the drop-down.
+
     ![vSphere-Host-Cluster](images/vSphere-Host-Cluster.png)
 
 31. Click **vpx**.
 
 
 32. Click **Edit Settings** to bring up the **Parameters** configuration window, open to the **Hardware** tab. (Click OK in the pop-up, the warning message can be ignored.)
+
     ![vSphere Parameters](images/vSphere-Parameters.png)
 
 33. Click **Network adapter 2** and **Network adapter 3** in turn. Note the displayed MAC addresses, and compare them to those in the APIC during the following steps.
+
     ![vSphere Network Adapters](images/vSphere_Network_Adapters.png)
 
 34. Close the **Virtual Machine Properties** window.
@@ -276,7 +288,7 @@ Use the **User Interfaces** of Cisco APIC, NetScaler VPX, and NetScaler MAS to c
 
 36. Verify that the MAC addresses and PORTGROUP show in the APIC window:
 
-    **a.** From the VM NETWORKING > Inventory menu, expand VMware > My-vCenter > Controllers > dCloudDC > Hypervisors > vesx1.dcloud.cisco.com > Virtual Machines and vesx2.dcloud.cisco.com > Virtual Machines. (vpx1 may be running on either host.)
+    **a.** From the **VM NETWORKING > Inventory menu**, expand **VMware > My-vCenter > Controllers > dCloudDC > Hypervisors > vesx1.dcloud.cisco.com > Virtual Machines** and **vesx2.dcloud.cisco.com > Virtual Machines**. *(vpx1 may be running on either host.)*
 
     **b.** Click vpx1 to display its parameters. Verify that the MAC addresses and portgroups match those in vSphere.
 
@@ -292,11 +304,11 @@ Use the **User Interfaces** of Cisco APIC, NetScaler VPX, and NetScaler MAS to c
 
 39. Open a new **Chrome** tab. In the Chrome Bookmarks Toolbar, click the **NetScaler MAS** shortcut and log in ( **nsroot/C1sco12345** ).
 
-40. In the top m enu, click **Orchestration**.
+40. In the top menu, click **Orchestration**.
 
 41. In the left menu click **SDN Orchestration** , and then click **Cisco ACI**.
 
-42. In the center fram e, click **APIC-HTTP-LB.**
+42. In the center frame, click **APIC-HTTP-LB.**
     
     ![MAS-Orchestration](images/mas-apic-orchestration.png)
 
