@@ -65,7 +65,7 @@ This scenario provides an overview of the APIC System Health dashboard and how t
 5. In the Destination field, type the destination IP address: **10.193.102.17** and click **Search**. Click the result.
   ![Screenshot](images/Screenshot8.png)
  
-6. In the **Time Window**, either use the drop-down to choose a number of minutes for the session, or check the **Use fixed time** checkbox and select any **From**: and **To**: times in the Time Window drop-downs and click the click the **Start** button.
+6. In the **Time Window**, either use the drop-down to choose a number of minutes for the session, or check the **Use fixed time** checkbox and select any **From**: and **To**: times in the Time Window drop-downs and click the **Start** button.
 The APIC will start the live troubleshooting and build the logical topology based on source and destination.
 
 #### Troubleshooting Session ####

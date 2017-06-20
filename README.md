@@ -29,7 +29,7 @@ Run [**Scenario 2**](./Scenario2) and [**Scenario 3**](./Scenario3). Between the
 
 ### Building a single tenant with a single- vs a multi-node graph and applying application policies with Citrix Netscaler MAS ###
 
-Run [**Scenario 5**](./Scenario5) and [**Scenario 6**](./Scenario6). Between the two scenarios, run [**Scenario 4**](./Scenario4)to remove the APIC objects.
+Run [**Scenario 5**](./Scenario5) and [**Scenario 6**](./Scenario6). Between the two scenarios, run [**Scenario 4**](./Scenario4) to remove the APIC objects.
 
 ### Difference between applying application policies in APIC vs using Netscaler MAS ###
 
@@ -42,7 +42,7 @@ Certain features of Cisco APIC 2.2 are outside the scope of this demonstration, 
   * All configuration will be lost after a reboot of the APIC simulator
   * No traffic will pass between devices connected to the simulated fabric
   * Screen refresh may take slightly longer than expected
-  * In [Scenario 1](./Scenario1), traceroute will only show from the Spines, not from each Leaf
+  * In [Scenario 1](./Scenario1), traceroute will only show from the Spines, not from each Leaf.
 
 ## Requirements ##
 
@@ -89,15 +89,15 @@ It may be necessary to schedule a new session after following this guide in orde
 
 Follow the steps to schedule a session of the content and configure your presentation environment.
 
-  1. Initiate your dCloud session. [Show Me How](https://dcloud-cms.cisco.com/help/ initiate-your-dcloud-session)
+  1. Initiate your dCloud session. [Show Me How](https://dcloud-cms.cisco.com/help/initiate-your-dcloud-session)
   
-    >**NOTE**: It may take up to 10 minutes for your session to become active.
+    > **NOTE**: It may take up to 10 minutes for your session to become active.
   
-  2. For best performance, connect to the workstation with **Cisco AnyConnect VPN** [Show   Me How](https://dcloud-cms.cisco.com/help/install_anyconnect_pc_mac) and the **local RDP  client on your laptop** [Show Me How](https://dcloud-cms.cisco.com/help/ local_rdp_mac_windows)
+  2. For best performance, connect to the workstation with **Cisco AnyConnect VPN** [Show Me How](https://dcloud-cms.cisco.com/help/install_anyconnect_pc_mac) and the **local RDP  client on your laptop** [Show Me How](https://dcloud-cms.cisco.com/help/local_rdp_mac_windows)
   
     * Workstation 1: **198.18.133.36**, Username: DCLOUD/demouser,Password: **C1sco12345**
   
-    > **NOTE**: You can also connect to the workstation using the Cisco dCloud Remote     Desktop client [Show Me How](https://dcloud-cms.cisco.com/help/access_demo_wkstn).  The  dCloud Remote Desktop client works best for accessing an active session with  minimal   interaction. However, many users experience connection and performance   issues with this   method.
+    > **NOTE**: You can also connect to the workstation using the Cisco dCloud Remote Desktop client [Show Me How](https://dcloud-cms.cisco.com/help/access_demo_wkstn).  The  dCloud Remote Desktop client works best for accessing an active session with  minimal   interaction. However, many users experience connection and performance   issues with this   method.
   
   3. The fabric discovery is automatically started at demo setup. Double-click the **APIC   Login icon**, accept the SSL Privacy error by clicking **advanced** followed by **  Proceed to 198.18.133.200** (unsafe), and finally login with the following credentials:   Username: **admin**, Password: **C1sco12345**.
   
@@ -115,7 +115,7 @@ Follow the steps to schedule a session of the content and configure your present
   
     > **NOTE:** To demonstrate Fabric Discovery, reset the APIC Simulator (see [Appendix](/ Appendix)) If only TEP-1-101 is present at login, see [Appendix](/Appendix) to   discover the Fabric.
   
-  7. Start vSphere from the Task Bar by clicking the icon, and make sure the Use Windows  Credentials checkbox is checked. **Click Login.**
+  7. Start vSphere from the Task Bar by clicking the **vSphere** icon, and make sure the Use Windows  Credentials checkbox is checked. **Click Login.**
   
   8. Check that the vpx1 and mas1 virtual machines are present and running as below.
   
